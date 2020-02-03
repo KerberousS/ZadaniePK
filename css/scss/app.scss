@@ -1,0 +1,236 @@
+//Global vars
+
+//Colors
+$button-link-color: #65C1D4;
+$base-background-color: #F2F2F2;
+$background-color: #FFFFFF;
+$base-text-color: #000000;
+$placeholder-text-color: #9D9D9D;
+$border-text-color: #E5E5E5;
+$filter-button-bg-color: #F7FCFD;
+
+//Fonts
+//// Sizes
+$small-font-size: 0.5rem;
+$large-font-size: 1.5rem;
+
+$h1-font-size: 2.5rem;
+
+//Mixins
+@import 'framework/scss/settings/settings';
+@import 'framework/scss/foundation';
+
+@include foundation-xy-grid-classes(
+  $base-grid: true,
+  $margin-grid: true,
+  $padding-grid: true,
+  $block-grid: true,
+  $collapse: true,
+  $offset: true,
+  $vertical-grid: true,
+  $frame-grid: true
+);
+
+@include foundation-button;
+@include foundation-forms;
+
+@mixin input-base-style {
+    height: auto;
+    padding: 1.25rem 1.25rem;
+    border: none;
+    border-bottom: 2px solid $base-text-color;
+    -webkit-box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.1);
+    box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.1);
+}
+
+body {
+    color: $base-text-color;
+    background-color: $base-background-color;
+    font-family: Arial, Helvetica, sans-serif; //TODO: Use font-family from the screenshot, I can't know what font is this without looking at original website, and that would be cheating
+    margin: 0;
+    padding: 0;
+}
+
+.callout {
+    background-color: $background-color;
+    border: none;
+    @include callout-base;
+    padding: 3rem;
+}
+
+.header-wrapper {
+
+    padding: 2rem 0 2rem 0;
+
+    h1 {
+        text-align: center;
+        font-size: $h1-font-size;
+        text-transform: uppercase;
+        letter-spacing: 0.5rem;
+        font-weight: normal;
+    }
+
+    a {
+        font-size: 2.5rem;
+        text-decoration: none;
+        color: $base-text-color;
+        position: absolute;
+        top: 5%;
+        transform: translateY(-0%);
+    }
+
+}
+
+
+.height-reset {
+    select {
+        @include input-base-style();
+        font-weight: bold;
+        -webkit-appearance:none;
+        -moz-appearance:none;
+        appearance: none;
+        background: url('/css/svg/chevron-bottom.svg') 80% / 10% no-repeat $background-color; //This chevron should be blue or the whole select should be custom
+        width: 80%;
+
+    }
+}
+
+.search-input-wrapper {
+    display: relative;
+
+    input {
+        @include input-base-style();
+    }
+
+    button {
+        position: absolute;
+        right: 80px;
+        top: 20%;
+        transform: translateY(5%);
+        border-radius: 30px;
+        background-color: $button-link-color;
+        padding: 1rem 2.5rem;
+    }
+}
+
+.filter-buttons {
+    
+    padding: 2rem 0;
+
+    button {
+        margin-right: 25px;
+        background-color: $background-color;
+        border: 1px solid $border-text-color;
+        border-radius: 5px 5px;
+        padding: 0.5rem 2rem 0.5rem 0.5rem;
+
+        &.active {
+            font-weight: bold;
+            color: $base-text-color;
+            background-color: $filter-button-bg-color;
+
+            &::after {
+                content: "X";
+                margin: 0 -1rem 0 1rem;
+            }
+        }
+    }
+}
+
+ul.reports-container {
+
+    .report-items-accordion {
+        margin-top: 1rem;
+    }
+
+    .report-item {
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid $border-text-color;
+    }
+
+    padding-inline-start: 0;
+
+    .report-text-container {
+        padding: 0 1rem;
+    }
+
+    li {
+        list-style-type: none;
+        margin: 0 0 1.5rem 0;
+
+        .report-title {
+            font-weight: bold;
+            font-size: $large-font-size;
+            margin-bottom: 0.5rem;
+            padding-right: 4rem;
+        }
+
+        .report-description {
+            margin-bottom: 0.75rem;
+        }
+
+        .report-date {
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+    }
+
+    @mixin link-styling {
+        color: $button-link-color;
+        margin: 0 1rem 0 0;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+
+    .file-select {
+        @include link-styling();
+        margin: 0;
+
+        .file-accordion {
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+
+            &::before {
+                content: url('/css/svg/chevron-bottom.svg');
+                margin-left: 5px;
+                height: 10px;
+                width: 10px;
+                background-size: 10px 10px;
+                float: right;
+                transition: transform 0.5s ease-in-out;
+                transform: scale(-1) translate(0px, -10px);
+            }
+
+            &.active {
+                &::before {
+                content: url('/css/svg/chevron-bottom.svg');
+                transform: scale(1)
+            }
+        }
+            
+
+        
+        .report-items-accordion {
+            transition: opacity 0.5s ease-in-out;
+            opacity: 1;
+
+            &.hidden {
+                opacity: 0;
+            }
+        }
+        }
+    }
+
+    a {
+        @include link-styling();
+
+        transition: all 0.4s;
+
+        &:hover {
+            color: #14679E;
+        }
+    }
+}

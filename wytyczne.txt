@@ -1,0 +1,14 @@
+Wytyczne do zadania:
+
+Do przygotowania jest strona z filtrownic¹ zgodnie z za³¹czonym projektem. RWD nale¿y zaproponowaæ wedle w³asnego przekonania. Strona powinna zostaæ przygotowana bez ¿adnego frameworka w vanilla js.
+
+Za³o¿enia funkcjonalne:
+
+- Na start ³adowane s¹ wszystkie wpisy z JSONa z najnowszego rocznika, nazwy pól s¹ nazwane zgodnie z logik¹ tego, gdzie powinny wyœwietlaæ siê na projekcie.
+- Zawartoœæ selecta z rocznikami i lista tagów, które mo¿na wybraæ powinna zostaæ zbudowana na podstawie dostêpnych lat i kategorii z JSONa, bez zaszywania na sztywno.
+- Pojedynczy raport, w zale¿noœci od liczby plików, które s¹ przy nim, mo¿e mieæ:
+    - link do pobrania pliku,
+    - domyœlnie zwiniêty akordeon otwieraj¹cy listê plików do pobrania,
+    - nic.
+- Mo¿na wybraæ wiêcej ni¿ jeden tag jednoczeœnie.
+- Po wpisaniu tekstu do inputa z wyszukiwaniem powinno filtrowaæ po tytu³ach i opisach raportów.
