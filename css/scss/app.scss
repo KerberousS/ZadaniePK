@@ -16,6 +16,9 @@ $large-font-size: 1.5rem;
 
 $h1-font-size: 2.5rem;
 
+//Breakpoints
+$break-mobile: 600px;
+
 //Mixins
 @import 'framework/scss/settings/settings';
 @import 'framework/scss/foundation';
@@ -78,6 +81,12 @@ body {
         position: absolute;
         top: 5%;
         transform: translateY(-0%);
+
+        
+        @media screen and (max-width: $break-mobile) {
+            position: relative;
+            right: 0;
+          }
     }
 
 }
@@ -93,6 +102,9 @@ body {
         background: url('/css/svg/chevron-bottom.svg') 80% / 10% no-repeat $background-color; //This chevron should be blue or the whole select should be custom
         width: 80%;
 
+        @media screen and (max-width: $break-mobile) {
+            width: 100%;
+          }
     }
 }
 
@@ -111,6 +123,12 @@ body {
         border-radius: 30px;
         background-color: $button-link-color;
         padding: 1rem 2.5rem;
+
+        @media screen and (max-width: $break-mobile) {
+            position: relative;
+            right: 0;
+            margin: 0 3rem;
+          }
     }
 }
 
@@ -124,6 +142,7 @@ body {
         border: 1px solid $border-text-color;
         border-radius: 5px 5px;
         padding: 0.5rem 2rem 0.5rem 0.5rem;
+        margin: 10px 10px;
 
         &.active {
             font-weight: bold;
@@ -164,6 +183,11 @@ ul.reports-container {
             font-size: $large-font-size;
             margin-bottom: 0.5rem;
             padding-right: 4rem;
+
+            @media screen and (max-width: $break-mobile) {
+                padding-right: 0;
+                margin-top: 1rem;
+              }
         }
 
         .report-description {
