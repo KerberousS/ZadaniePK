@@ -206,11 +206,11 @@ function getHTMLReportElement(report) {
         filesSelect.setAttribute('class', 'file-select'); //Check if theres an option to do this element other way
 
         const seeMoreReportAccordion = document.createElement('a');
-        seeMoreReportAccordion.setAttribute('class', 'file-accordion');
+        seeMoreReportAccordion.setAttribute('class', 'file-accordion active');
         seeMoreReportAccordion.innerHTML = 'Pliki do pobrania (' + report.files.length +')';
 
         const reportItemsAccordionContainer = document.createElement('div');
-        reportItemsAccordionContainer.setAttribute('class', 'grid-y report-items-accordion');
+        reportItemsAccordionContainer.setAttribute('class', 'grid-y report-items-accordion hidden');
         
 
         for (let i2=0; i2<report.files.length; i2++) {
